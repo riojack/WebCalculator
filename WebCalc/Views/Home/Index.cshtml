@@ -2,7 +2,24 @@
     ViewData["Title"] = "Home Page";
 }
 
+@section Scripts {
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function (event) {
+        document.querySelector('button.do_calc').addEventListener('click', function () {
+            const operand1 = document.querySelector('.operand1').value;
+            const operand2 = document.querySelector('.operand2').value;
+
+            const addedValue = parseInt(operand1) + parseInt(operand2);
+            const result = document.querySelector('.result');
+            result.textContent = addedValue;
+        });
+    });
+</script>
+}
+
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <input type="text" class="operand1">
+    <input type="text" class="operand2">
+    <button type="button" class="do_calc">Calculate!</button>
+    <div class="result"></div>
 </div>
